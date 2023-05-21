@@ -25,7 +25,6 @@ public class UserInterface {
 
     void update() {
         this.listener.update();
-        System.out.println("Tick");
         Color[][] points = new Color[this.size.x][this.size.y];
         for (Item item : this.listener.getItems()) {
             for (Coordinates coor : item.getPositions()) {
