@@ -3,9 +3,15 @@ package com.froxot.snake;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * Tracks key's input and sends then to the listener
+ */
 class KeyReceiver extends KeyAdapter {
     private Communicator listener;
 
+    /**
+     * @param listener The listener where the actions should be send
+     */
     KeyReceiver(Communicator listener) {
         this.listener = listener;
     }

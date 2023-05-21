@@ -3,10 +3,7 @@ package com.froxot.snake;
 import java.awt.*;
 
 /**
- * Beschreiben Sie hier die Klasse Point.
- * 
- * @author (Ihr Name)
- * @version (eine Versionsnummer oder ein Datum)
+ * Coordinates with a color
  */
 class Point {
     public int x;

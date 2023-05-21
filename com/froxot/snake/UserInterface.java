@@ -4,16 +4,19 @@ import java.util.concurrent.*;
 import java.awt.Color;
 
 /**
- * Beschreiben Sie hier die Klasse Main.
  * 
- * @author (Ihr Name)
- * @version (eine Versionsnummer oder ein Datum)
  */
 public class UserInterface {
     private GUI gui;
     private Communicator listener;
     private Coordinates size;
 
+    /**
+     * @param listener Your main method where you collect the input
+     * @param speed    The speed of the snake in milliseconds
+     * @param size     Defines the size for the window Note: x should never be less
+     *                 than 23
+     */
     public UserInterface(Communicator listener, int speed, Coordinates size) {
         this.size = size;
         this.listener = listener;
@@ -23,6 +26,10 @@ public class UserInterface {
         executor.scheduleAtFixedRate(runnable, 0, speed, TimeUnit.MILLISECONDS);
     }
 
+    /**
+     * Collects all items and converts them to a matrix of colors. This will be
+     * written to the gui automatically
+     */
     void update() {
         this.listener.update();
         Color[][] points = new Color[this.size.x][this.size.y];
