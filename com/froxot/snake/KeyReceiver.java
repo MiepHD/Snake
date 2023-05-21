@@ -1,17 +1,13 @@
 package com.froxot.snake;
 
-import java.awt.Frame;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 class KeyReceiver extends KeyAdapter {
     private Communicator listener;
-    private Frame frame;
 
-    KeyReceiver(Communicator listener, Frame frame) {
+    KeyReceiver(Communicator listener) {
         this.listener = listener;
-        this.frame = frame;
-        this.addListener();
     }
 
     public void keyPressed(KeyEvent e) {
@@ -29,10 +25,5 @@ class KeyReceiver extends KeyAdapter {
                 listener.right();
             default:
         }
-        this.addListener();
-    }
-
-    void addListener() {
-        this.frame.addKeyListener(this);
     }
 }

@@ -17,7 +17,7 @@ class GUI extends Frame {
         this.points = new Label[size.x][size.y];
         this.listener = listener;
         this.frame = new Frame();
-        new KeyReceiver(this.listener, this.frame);
+        this.frame.addKeyListener(new KeyReceiver(this.listener));
         for (int y = 0; y < this.points[0].length; y++) {
             for (int x = 0; x < this.points.length; x++) {
                 this.points[x][y] = new Label();

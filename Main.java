@@ -6,14 +6,12 @@ import com.froxot.snake.UserInterface;
 import com.froxot.snake.Communicator;
 
 public class Main implements Communicator {
-    private Direction direction;
     private Snake snake;
     private ArrayList<Food> foods;
     private final Coordinates size;
 
     public Main(Coordinates size) {
         this.size = size;
-        this.direction = Direction.DOWN;
         this.snake = new Snake(new Coordinates(size.x / 2, 0));
         this.foods = new ArrayList<Food>();
         for (int i = 0; i < 6; i++) {
@@ -22,34 +20,44 @@ public class Main implements Communicator {
     }
 
     public static void main(String[] args) {
-        Coordinates size = new Coordinates(90, 60);
+        Coordinates size = new Coordinates(20, 20);
         new UserInterface(new Main(size), 500, size);
     }
 
     public void up() {
-        this.direction = Direction.UP;
+        this.snake.setDirection(Direction.UP);
     }
 
     public void down() {
-        this.direction = Direction.DOWN;
+        this.snake.setDirection(Direction.DOWN);
     }
 
     public void left() {
-        this.direction = Direction.LEFT;
+        this.snake.setDirection(Direction.LEFT);
     }
 
     public void right() {
-        this.direction = Direction.RIGHT;
+        this.snake.setDirection(Direction.RIGHT);
     }
 
     public void update() {
-        Coordinates coor = direction.getCoordinates();
-        this.snake.extend(coor);
+        this.snake.extend();
         for (Food food : this.foods) {
-            if (this.snake.getPositions().contains(food.getPositions().get(0))) {
+            ArrayList<Coordinates> positions = this.snake.getPositions();
+            if (positions.contains(food.getPositions().get(0))) {
                 this.foods.remove(food);
                 this.foods.add(new Food(this.size));
                 return;
+            } else {
+                Coordinates last = positions.get(positions.size() - 1);
+                if (last.x >= this.size.x
+                        || last.y >= this.size.y
+                        || last.x < 0
+                        || last.y < 0
+                        || positions.indexOf(last) != positions.lastIndexOf(last)) {
+                    this.snake = new Snake(new Coordinates(size.x / 2, 0));
+                    return;
+                }
             }
         }
         this.snake.removeEnd();
