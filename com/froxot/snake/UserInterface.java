@@ -34,5 +34,7 @@ public class UserInterface {
             }
         }
         gui.repaint(points);
+        this.gui.setScore(this.listener.getScore());
+        this.gui.setHighscore(this.listener.getHighscore());
     }
 }

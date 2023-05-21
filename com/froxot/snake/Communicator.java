@@ -14,4 +14,8 @@ public interface Communicator {
     public void update();
 
     public ArrayList<Item> getItems();
+
+    public int getScore();
+
+    public int getHighscore();
 }

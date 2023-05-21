@@ -9,8 +9,10 @@ public class Main implements Communicator {
     private Snake snake;
     private ArrayList<Food> foods;
     private final Coordinates size;
+    private int highscore;
 
     public Main(Coordinates size) {
+        this.highscore = 0;
         this.size = size;
         this.snake = new Snake(new Coordinates(size.x / 2, 0));
         this.foods = new ArrayList<Food>();
@@ -20,7 +22,7 @@ public class Main implements Communicator {
     }
 
     public static void main(String[] args) {
-        Coordinates size = new Coordinates(20, 20);
+        Coordinates size = new Coordinates(30, 30);
         new UserInterface(new Main(size), 500, size);
     }
 
@@ -55,6 +57,7 @@ public class Main implements Communicator {
                         || last.x < 0
                         || last.y < 0
                         || positions.indexOf(last) != positions.lastIndexOf(last)) {
+                    this.highscore = Math.max(this.getScore() - 1, this.highscore);
                     this.snake = new Snake(new Coordinates(size.x / 2, 0));
                     return;
                 }
@@ -70,5 +73,13 @@ public class Main implements Communicator {
             items.add(food);
         }
         return items;
+    }
+
+    public int getScore() {
+        return this.snake.getPositions().size() - 3;
+    }
+
+    public int getHighscore() {
+        return this.highscore;
     }
 }
