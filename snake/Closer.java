@@ -1,4 +1,4 @@
-package com.froxot.snake;
+package snake;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;

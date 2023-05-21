@@ -1,4 +1,4 @@
-import com.froxot.snake.Coordinates;
+import snake.Coordinates;
 
 public enum Direction {
     UP(new Coordinates(0, -1)),

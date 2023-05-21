@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-import com.froxot.snake.Coordinates;
-import com.froxot.snake.Item;
+import snake.Coordinates;
+import snake.Item;
 import java.awt.Color;
 
 /**

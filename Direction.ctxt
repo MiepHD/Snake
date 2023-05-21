@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Direction
+comment1.params=coor
+comment1.target=Direction(snake.Coordinates)
+numComments=2

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Food
+comment1.params=size
+comment1.target=Food(snake.Coordinates)
+comment2.params=
+comment2.target=java.util.ArrayList\ getPositions()
+comment3.params=
+comment3.target=java.awt.Color\ getColor()
+numComments=4

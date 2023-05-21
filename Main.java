@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-import com.froxot.snake.Coordinates;
-import com.froxot.snake.Item;
-import com.froxot.snake.UserInterface;
-import com.froxot.snake.Communicator;
+import snake.Coordinates;
+import snake.Item;
+import snake.UserInterface;
+import snake.Communicator;
 
 public class Main implements Communicator {
     private Snake snake;

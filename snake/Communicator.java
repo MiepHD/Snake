@@ -1,4 +1,4 @@
-package com.froxot.snake;
+package snake;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.froxot.snake;
+package snake;
 
 /**
  * Beschreiben Sie hier die Klasse Coordinate.

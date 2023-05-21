@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Snake
+comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Snake.\n\ \n\ @author\ (Ihr\ Name)\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
+comment1.params=coor
+comment1.target=Snake(snake.Coordinates)
+comment2.params=direction
+comment2.target=void\ setDirection(Direction)
+comment3.params=
+comment3.target=java.util.ArrayList\ getPositions()
+comment4.params=
+comment4.target=java.awt.Color\ getColor()
+comment5.params=
+comment5.target=void\ removeEnd()
+comment6.params=
+comment6.target=void\ extend()
+numComments=7

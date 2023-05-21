@@ -1,8 +1,8 @@
 import java.awt.Color;
 import java.util.ArrayList;
 
-import com.froxot.snake.Coordinates;
-import com.froxot.snake.Item;
+import snake.Coordinates;
+import snake.Item;
 
 public class Food implements Item {
     private Coordinates position;

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=UserInterface
+comment0.text=\n\ \n
+comment1.params=listener\ speed\ size
+comment1.target=UserInterface(Communicator,\ int,\ Coordinates)
+comment1.text=\n\ @param\ listener\ Your\ main\ method\ where\ you\ collect\ the\ input\n\ @param\ speed\ \ \ \ The\ speed\ of\ the\ snake\ in\ milliseconds\n\ @param\ size\ \ \ \ \ Defines\ the\ size\ for\ the\ window\ Note\:\ x\ should\ never\ be\ less\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ than\ 23\n
+comment2.params=
+comment2.target=void\ update()
+comment2.text=\n\ Collects\ all\ items\ and\ converts\ them\ to\ a\ matrix\ of\ colors.\ This\ will\ be\n\ written\ to\ the\ gui\ automatically\n
+numComments=3

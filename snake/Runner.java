@@ -1,4 +1,4 @@
-package com.froxot.snake;
+package snake;
 
 class Runner implements Runnable {
     private UserInterface ui;

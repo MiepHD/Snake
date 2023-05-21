@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=GUI
+comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ GUI.\n\ \n\ @author\ (Ihr\ Name)\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
+comment1.params=listener\ size
+comment1.target=GUI(Communicator,\ Coordinates)
+comment1.text=\n\ \n\ @param\ listener\n\ @param\ size\ \ \ \ \ Width\ must\ be\ at\ least\ 23\n
+comment2.params=points
+comment2.target=void\ repaint(java.awt.Color[][])
+comment3.params=score
+comment3.target=void\ setScore(int)
+comment4.params=score
+comment4.target=void\ setHighscore(int)
+comment5.params=i
+comment5.target=char[]\ splitInt(int)
+numComments=6
