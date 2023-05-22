@@ -1,15 +1,19 @@
 #BlueJ class context
 comment0.target=GUI
-comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ GUI.\n\ \n\ @author\ (Ihr\ Name)\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
-comment1.params=listener\ resolution
-comment1.target=GUI(Communicator,\ Coordinates)
-comment1.text=\n\ \n\ @param\ listener\n\ @param\ resolution\ \ \ \ \ Width\ must\ be\ at\ least\ 23\n
+comment0.text=\r\n\ The\ frame\ where\ it\ is\ actually\ painted\r\n
+comment1.params=listener\ resolution\ size
+comment1.target=GUI(Communicator,\ Coordinates,\ java.awt.Dimension)
+comment1.text=\r\n\ \r\n\ @param\ listener\r\n\ @param\ resolution\ \ \ \ \ Width\ must\ be\ at\ least\ 23\r\n
 comment2.params=points
 comment2.target=void\ repaint(java.awt.Color[][])
+comment2.text=\r\n\ Paints\ the\ colors\ onto\ the\ ui\r\n\ Leaves\ the\ color\ there\ if\ it's\ the\ same\r\n
 comment3.params=score
 comment3.target=void\ setScore(int)
+comment3.text=\r\n\ @param\ score\ must\ have\ less\ than\ 4\ digits\ and\ must\ be\ positive\r\n
 comment4.params=score
 comment4.target=void\ setHighscore(int)
+comment4.text=\r\n\ @param\ score\ must\ have\ less\ than\ 4\ digits\ and\ must\ be\ positive\r\n
 comment5.params=i
 comment5.target=char[]\ splitInt(int)
+comment5.text=\r\n\ Splits\ i\ into\ chars\r\n\ @param\ i\ positive\ number\ with\ three\ digits\r\n
 numComments=6

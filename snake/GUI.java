@@ -3,10 +3,7 @@ package snake;
 import java.awt.*;
 
 /**
- * Beschreiben Sie hier die Klasse GUI.
- * 
- * @author (Ihr Name)
- * @version (eine Versionsnummer oder ein Datum)
+ * The frame where it is actually painted
  */
 class GUI extends Frame {
     private Label[][] points;
@@ -56,7 +53,11 @@ class GUI extends Frame {
         this.setVisible(true);
         System.out.println("");
     }
-
+    
+    /**
+     * Paints the colors onto the ui
+     * Leaves the color there if it's the same
+     */
     void repaint(Color[][] points) {
         for (int y = 0; y < this.points[0].length; y++) {
             for (int x = 0; x < this.points.length; x++) {
@@ -67,6 +68,9 @@ class GUI extends Frame {
         }
     }
 
+    /**
+     * @param score must have less than 4 digits and must be positive
+     */
     void setScore(int score) {
         if (score < 1000 && score >= 0) {
             char[] chars = this.splitInt(score);
@@ -76,6 +80,9 @@ class GUI extends Frame {
         }
     }
 
+    /**
+     * @param score must have less than 4 digits and must be positive
+     */
     void setHighscore(int score) {
         if (score < 1000 && score >= 0) {
             char[] chars = this.splitInt(score);
@@ -85,6 +92,10 @@ class GUI extends Frame {
         }
     }
 
+    /**
+     * Splits i into chars
+     * @param i positive number with three digits
+     */
     private char[] splitInt(int i) {
         char[] chars = new char[3];
         chars[0] = (char) ((i % 10) + '0');

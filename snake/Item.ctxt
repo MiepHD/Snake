@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Item
-comment0.text=\n\ Structure\ for\ an\ Element\ that\ can\ be\ rendered\ on\ the\ GUI\n
+comment0.text=\r\n\ Structure\ for\ an\ Element\ that\ can\ be\ rendered\ on\ the\ GUI\r\n
 comment1.params=
 comment1.target=java.awt.Color\ getColor()
-comment1.text=\n\ @return\ The\ color\ that\ should\ be\ used\ to\ represent\ this\ element\n
+comment1.text=\r\n\ @return\ The\ color\ that\ should\ be\ used\ to\ represent\ this\ element\r\n
 comment2.params=
 comment2.target=java.util.ArrayList\ getPositions()
-comment2.text=\n\ @return\ The\ Coordinates\ where\ the\ pieces\ of\ the\ Element\ are\n
+comment2.text=\r\n\ @return\ The\ Coordinates\ where\ the\ pieces\ of\ the\ Element\ are\r\n
 numComments=3

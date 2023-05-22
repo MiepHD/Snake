@@ -2,9 +2,11 @@ package snake;
 
 import java.util.concurrent.*;
 import java.awt.Color;
+import java.awt.Dimension;
 
 /**
- * 
+ * Main class of the ui
+ * When creating an object a new GUI is created
  */
 public class UserInterface {
     private GUI gui;
@@ -17,10 +19,10 @@ public class UserInterface {
      * @param resolution     Defines the resolution for the window Note: x should never be less
      *                 than 23
      */
-    public UserInterface(Communicator listener, int speed, Coordinates resolution) {
+    public UserInterface(Communicator listener, int speed, Coordinates resolution, Dimension size) {
         this.resolution = resolution;
         this.listener = listener;
-        this.gui = new GUI(listener, resolution);
+        this.gui = new GUI(listener, resolution, size);
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         Runnable runnable = new Runner(this);
         executor.scheduleAtFixedRate(runnable, 0, speed, TimeUnit.MILLISECONDS);

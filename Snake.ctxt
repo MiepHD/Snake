@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Snake
-comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Snake.\n\ \n\ @author\ (Ihr\ Name)\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
+comment0.text=\r\n\ A\ snake\ that\ is\ an\ Item\ which\ can\ be\ displayed\ on\ the\ ui\r\n
 comment1.params=coor
 comment1.target=Snake(snake.Coordinates)
+comment1.text=\r\n\ @param\ coor\ Position\ where\ snake\ should\ spawn\r\n
 comment2.params=direction
 comment2.target=void\ setDirection(Direction)
 comment3.params=
@@ -13,4 +14,5 @@ comment5.params=
 comment5.target=void\ removeEnd()
 comment6.params=
 comment6.target=void\ extend()
+comment6.text=\r\n\ Extends\ the\ snake\ it\ the\ direction\ of\ this.direction\ with\ \r\n
 numComments=7

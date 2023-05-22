@@ -1,9 +1,7 @@
 #BlueJ class context
 comment0.target=Coordinates
-comment0.text=\n\ Beschreiben\ Sie\ hier\ die\ Klasse\ Coordinate.\n\ \n\ @author\ (Ihr\ Name)\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
 comment1.params=x\ y
 comment1.target=Coordinates(int,\ int)
-comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Coordinate\n
 comment2.params=o
 comment2.target=boolean\ equals(java.lang.Object)
 numComments=3

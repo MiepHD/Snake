@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=UserInterface
-comment0.text=\n\ \n
-comment1.params=listener\ speed\ resolution
-comment1.target=UserInterface(Communicator,\ int,\ Coordinates)
-comment1.text=\n\ @param\ listener\ Your\ main\ method\ where\ you\ collect\ the\ input\n\ @param\ speed\ \ \ \ The\ speed\ of\ the\ snake\ in\ milliseconds\n\ @param\ resolution\ \ \ \ \ Defines\ the\ resolution\ for\ the\ window\ Note\:\ x\ should\ never\ be\ less\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ than\ 23\n
+comment0.text=\r\n\ Main\ class\ of\ the\ ui\r\n\ When\ creating\ an\ object\ a\ new\ GUI\ is\ created\r\n
+comment1.params=listener\ speed\ resolution\ size
+comment1.target=UserInterface(Communicator,\ int,\ Coordinates,\ java.awt.Dimension)
+comment1.text=\r\n\ @param\ listener\ Your\ main\ method\ where\ you\ collect\ the\ input\r\n\ @param\ speed\ \ \ \ The\ speed\ of\ the\ snake\ in\ milliseconds\r\n\ @param\ resolution\ \ \ \ \ Defines\ the\ resolution\ for\ the\ window\ Note\:\ x\ should\ never\ be\ less\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ than\ 23\r\n
 comment2.params=
 comment2.target=void\ update()
-comment2.text=\n\ Collects\ all\ items\ and\ converts\ them\ to\ a\ matrix\ of\ colors.\ This\ will\ be\n\ written\ to\ the\ gui\ automatically\n
+comment2.text=\r\n\ Collects\ all\ items\ and\ converts\ them\ to\ a\ matrix\ of\ colors.\ This\ will\ be\r\n\ written\ to\ the\ gui\ automatically\r\n
 numComments=3

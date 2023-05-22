@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.awt.Dimension;
 
 import snake.Coordinates;
 import snake.Item;

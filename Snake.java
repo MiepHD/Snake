@@ -4,16 +4,16 @@ import snake.Item;
 import java.awt.Color;
 
 /**
- * Beschreiben Sie hier die Klasse Snake.
- * 
- * @author (Ihr Name)
- * @version (eine Versionsnummer oder ein Datum)
+ * A snake that is an Item which can be displayed on the ui
  */
 public class Snake implements Item {
     private Direction direction;
     private ArrayList<Coordinates> positions;
     private Color color;
 
+    /**
+     * @param coor Position where snake should spawn
+     */
     public Snake(Coordinates coor) {
         this.direction = Direction.DOWN;
         this.positions = new ArrayList<Coordinates>();
@@ -41,6 +41,9 @@ public class Snake implements Item {
         this.positions.remove(0);
     }
 
+    /**
+     * Extends the snake it the direction of this.direction with 
+     */
     public void extend() {
         Coordinates lastelement = this.positions.get(this.positions.size() - 1);
         this.positions.add(new Coordinates(
