@@ -9,18 +9,18 @@ import java.awt.Color;
 public class UserInterface {
     private GUI gui;
     private Communicator listener;
-    private Coordinates size;
+    private Coordinates resolution;
 
     /**
      * @param listener Your main method where you collect the input
      * @param speed    The speed of the snake in milliseconds
-     * @param size     Defines the size for the window Note: x should never be less
+     * @param resolution     Defines the resolution for the window Note: x should never be less
      *                 than 23
      */
-    public UserInterface(Communicator listener, int speed, Coordinates size) {
-        this.size = size;
+    public UserInterface(Communicator listener, int speed, Coordinates resolution) {
+        this.resolution = resolution;
         this.listener = listener;
-        this.gui = new GUI(listener, size);
+        this.gui = new GUI(listener, resolution);
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         Runnable runnable = new Runner(this);
         executor.scheduleAtFixedRate(runnable, 0, speed, TimeUnit.MILLISECONDS);
@@ -32,10 +32,10 @@ public class UserInterface {
      */
     void update() {
         this.listener.update();
-        Color[][] points = new Color[this.size.x][this.size.y];
+        Color[][] points = new Color[this.resolution.x][this.resolution.y];
         for (Item item : this.listener.getItems()) {
             for (Coordinates coor : item.getPositions()) {
-                if (coor.x < this.size.x && coor.x >= 0 && coor.y < this.size.y && coor.y >= 0) {
+                if (coor.x < this.resolution.x && coor.x >= 0 && coor.y < this.resolution.y && coor.y >= 0) {
                     points[coor.x][coor.y] = item.getColor();
                 }
             }

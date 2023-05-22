@@ -16,10 +16,10 @@ class GUI extends Frame {
     /**
      * 
      * @param listener
-     * @param size     Width must be at least 23
+     * @param resolution     Width must be at least 23
      */
-    GUI(Communicator listener, Coordinates size) {
-        this.points = new Label[size.x][size.y];
+    GUI(Communicator listener, Coordinates resolution, Dimension size) {
+        this.points = new Label[resolution.x][resolution.y];
         this.listener = listener;
         this.addKeyListener(new KeyReceiver(this.listener));
         String[] vals = new String[] { "S", "c", "o", "r", "e", ":", " ", "0", "0", "0", " ", "H", "i", "g", "h", "e",
@@ -33,25 +33,25 @@ class GUI extends Frame {
                 i--;
             }
             label.setBackground(Color.lightGray);
-            label.setPreferredSize(new Dimension(10, 10));
+            label.setPreferredSize(size);
             this.add(label);
         }
-        for (i = 23; i < size.x; i++) {
+        for (i = 23; i < resolution.x; i++) {
             Label label = new Label();
             label.setBackground(Color.lightGray);
-            label.setPreferredSize(new Dimension(10, 10));
+            label.setPreferredSize(size);
             this.add(label);
         }
         for (int y = 0; y < this.points[0].length; y++) {
             for (int x = 0; x < this.points.length; x++) {
                 this.points[x][y] = new Label();
                 this.points[x][y].setBackground(Color.lightGray);
-                this.points[x][y].setPreferredSize(new Dimension(10, 10));
+                this.points[x][y].setPreferredSize(size);
                 this.add(this.points[x][y]);
             }
         }
         this.addWindowListener(new Closer());
-        this.setLayout(new GridLayout(size.y + 1, size.x));
+        this.setLayout(new GridLayout(resolution.y + 1, resolution.x));
         this.pack();
         this.setVisible(true);
         System.out.println("");

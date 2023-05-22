@@ -8,8 +8,8 @@ public class Food implements Item {
     private Coordinates position;
     private Color color;
 
-    public Food(Coordinates size) {
-        this.position = new Coordinates((int) (Math.random() * size.x), (int) (Math.random() * size.y));
+    public Food(Coordinates resolution) {
+        this.position = new Coordinates((int) (Math.random() * resolution.x), (int) (Math.random() * resolution.y));
         this.color = Color.BLACK;
     }
 

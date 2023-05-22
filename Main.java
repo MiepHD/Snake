@@ -8,22 +8,22 @@ import snake.Communicator;
 public class Main implements Communicator {
     private Snake snake;
     private ArrayList<Food> foods;
-    private final Coordinates size;
+    private final Coordinates resolution;
     private int highscore;
 
-    public Main(Coordinates size) {
+    public Main(Coordinates resolution) {
         this.highscore = 0;
-        this.size = size;
-        this.snake = new Snake(new Coordinates(size.x / 2, 0));
+        this.resolution = resolution;
+        this.snake = new Snake(new Coordinates(resolution.x / 2, 0));
         this.foods = new ArrayList<Food>();
         for (int i = 0; i < 6; i++) {
-            this.foods.add(new Food(this.size));
+            this.foods.add(new Food(this.resolution));
         }
     }
 
     public static void main(String[] args) {
-        Coordinates size = new Coordinates(30, 30);
-        new UserInterface(new Main(size), 500, size);
+        Coordinates resolution = new Coordinates(30, 30);
+        new UserInterface(new Main(resolution), 500, resolution, new Dimension(10, 10));
     }
 
     public void up() {
@@ -48,17 +48,17 @@ public class Main implements Communicator {
             ArrayList<Coordinates> positions = this.snake.getPositions();
             if (positions.contains(food.getPositions().get(0))) {
                 this.foods.remove(food);
-                this.foods.add(new Food(this.size));
+                this.foods.add(new Food(this.resolution));
                 return;
             } else {
                 Coordinates last = positions.get(positions.size() - 1);
-                if (last.x >= this.size.x
-                        || last.y >= this.size.y
+                if (last.x >= this.resolution.x
+                        || last.y >= this.resolution.y
                         || last.x < 0
                         || last.y < 0
                         || positions.indexOf(last) != positions.lastIndexOf(last)) {
                     this.highscore = Math.max(this.getScore() - 1, this.highscore);
-                    this.snake = new Snake(new Coordinates(size.x / 2, 0));
+                    this.snake = new Snake(new Coordinates(resolution.x / 2, 0));
                     return;
                 }
             }
