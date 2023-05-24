@@ -16,7 +16,7 @@ class GUI extends Frame {
      * @param resolution     Width must be at least 23
      */
     GUI(UserInterface ui, Coordinates resolution, Dimension size) {
-        this.points = new Label[resolution.x][resolution.y];
+        this.points = new Label[resolution.getX()][resolution.getY()];
         this.ui = ui;
         this.addKeyListener(new KeyReceiver(this.ui));
         String[] vals = new String[] { "S", "c", "o", "r", "e", ":", " ", "0", "0", "0", " ", "H", "i", "g", "h", "e",
@@ -33,7 +33,7 @@ class GUI extends Frame {
             label.setPreferredSize(size);
             this.add(label);
         }
-        for (i = 23; i < resolution.x; i++) {
+        for (i = 23; i < resolution.getX(); i++) {
             Label label = new Label();
             label.setBackground(Color.lightGray);
             label.setPreferredSize(size);
@@ -48,7 +48,7 @@ class GUI extends Frame {
             }
         }
         this.addWindowListener(new Closer());
-        this.setLayout(new GridLayout(resolution.y + 1, resolution.x));
+        this.setLayout(new GridLayout(resolution.getY() + 1, resolution.getX()));
         this.pack();
         this.setVisible(true);
         System.out.println("");

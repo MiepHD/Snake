@@ -10,32 +10,59 @@ import java.awt.Dimension;
  * When creating an object a new GUI is created
  */
 public abstract class UserInterface {
-    private GUI gui;
-    protected Coordinates resolution;
+    private int speed;
+    private boolean speededitable;
+    protected final Coordinates resolution;
+    private final GUI gui;
+    private final ScheduledExecutorService executor;
 
     /**
      * @param speed    The speed of the snake in milliseconds
      * @param resolution     Defines the resolution for the window Note: x should never be less
      *                 than 23
      */
-    public void start(int speed, Dimension size) {
+    protected UserInterface(int speed, Coordinates resolution, Dimension size) {
+        this.speededitable = true;
+        this.speed = speed;
+        this.resolution = resolution;
         this.gui = new GUI(this, this.resolution, size);
+        this.executor = Executors.newScheduledThreadPool(2);
+    }
+
+    /**
+     * The speed is not editable but has better performance
+     */
+    protected void runAtFixedSpeed() {
+        if (!this.speededitable) return;
+        this.speededitable = false;
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         Runnable runnable = new Runner(this);
-        executor.scheduleAtFixedRate(runnable, 0, speed, TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(runnable, 0, this.speed, TimeUnit.MILLISECONDS);
     }
+
+    /**
+     * Speed can be changed through increaseSpeed(int) and decreaseSpeed(int)
+     */
+    protected void runAtEditableSpeed() {
+        if (!this.speededitable) return;
+        Runnable runnable = new Runner(this);
+        this.executor.schedule(runnable, this.speed, TimeUnit.MILLISECONDS);
+    }
+
+    
 
     /**
      * Collects all items and converts them to a matrix of colors. This will be
      * written to the gui automatically
      */
     void update() {
+        if (speededitable) runAtEditableSpeed();
         this.tick();
-        Color[][] points = new Color[this.resolution.x][this.resolution.y];
+        Color[][] points = new Color[this.resolution.getX()][this.resolution.getY()];
         for (Item item : this.getItems()) {
             for (Coordinates coor : item.getPositions()) {
-                if (coor.x < this.resolution.x && coor.x >= 0 && coor.y < this.resolution.y && coor.y >= 0) {
-                    points[coor.x][coor.y] = item.getColor();
+                if (coor.getX() < this.resolution.getX() && coor.getX() >= 0 && coor.getY() < this.resolution.getY() && coor.getY() >= 0) {
+                    points[coor.getX()][coor.getY()] = item.getColor();
                 }
             }
         }
@@ -44,31 +71,31 @@ public abstract class UserInterface {
         this.gui.setHighscore(this.getHighscore());
     }
 
-    public abstract void up();
+    protected abstract void up();
 
-    public abstract void down();
+    protected abstract void down();
 
-    public abstract void left();
+    protected abstract void left();
 
-    public abstract void right();
+    protected abstract void right();
 
     /**
      * Called every tick
      */
-    public abstract void tick();
+    protected abstract void tick();
 
     /**
      * @return All Items that should be rendered on the GUI
      */
-    public abstract ArrayList<Item> getItems();
+    protected abstract ArrayList<Item> getItems();
     
     /**
      * @return Score displayed on the ui
      */
-    public abstract int getScore();
+    protected abstract int getScore();
     
     /**
      * @return Highscore displayed on the ui
      */
-    public abstract int getHighscore();
+    protected abstract int getHighscore();
 }

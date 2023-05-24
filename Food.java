@@ -9,7 +9,7 @@ public class Food implements Item {
     private Color color;
 
     public Food(Coordinates resolution) {
-        this.position = new Coordinates((int) (Math.random() * resolution.x), (int) (Math.random() * resolution.y));
+        this.position = new Coordinates((int) (Math.random() * resolution.getX()), (int) (Math.random() * resolution.getY()));
         this.color = Color.BLACK;
     }
 

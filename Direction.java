@@ -6,11 +6,9 @@ public enum Direction {
     LEFT(new Coordinates(-1, 0)),
     RIGHT(new Coordinates(1, 0));
 
-    public final int x;
-    public final int y;
+    public final Coordinates coor;
 
     private Direction(Coordinates coor) {
-        this.x = coor.x;
-        this.y = coor.y;
+        this.coor = coor;
     }
 }

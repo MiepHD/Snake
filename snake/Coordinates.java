@@ -2,12 +2,20 @@ package snake;
 
 public class Coordinates {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    public int x;
-    public int y;
+    private final int x;
+    private final int y;
     
     public Coordinates(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    public int getX() {
+        return this.x;
     }
 
     @Override

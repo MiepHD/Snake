@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 import snake.Coordinates;
 import snake.Item;
 import java.awt.Color;
@@ -9,19 +10,17 @@ import java.awt.Color;
 public class Snake implements Item {
     private Direction direction;
     private ArrayList<Coordinates> positions;
-    private Color color;
+    private final Color color;
 
     /**
      * @param coor Position where snake should spawn
      */
-    public Snake(Coordinates coor) {
+    public Snake(Coordinates[] coors) {
         this.direction = Direction.DOWN;
         this.positions = new ArrayList<Coordinates>();
-        this.positions.add(coor);
-        coor.y++;
-        this.positions.add(coor);
-        coor.y++;
-        this.positions.add(coor);
+        for (Coordinates coor : coors) {
+            this.positions.add(coor);
+        }
         this.color = Color.BLUE;
     }
 
@@ -47,7 +46,7 @@ public class Snake implements Item {
     public void extend() {
         Coordinates lastelement = this.positions.get(this.positions.size() - 1);
         this.positions.add(new Coordinates(
-                lastelement.x + this.direction.x,
-                lastelement.y + this.direction.y));
+                lastelement.getX() + this.direction.coor.getX(),
+                lastelement.getY() + this.direction.coor.getY()));
     }
 }

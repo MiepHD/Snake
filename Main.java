@@ -10,17 +10,16 @@ public class Main extends UserInterface {
     private ArrayList<Food> foods;
     private int highscore;
 
-    public Main(int speed, Coordinates resolution, Dimension size) {
-        this.resolution = resolution;
+    private Main(int speed, Coordinates resolution, Dimension size) {
+        super(speed, resolution, size);
         this.highscore = 0;
-        this.snake = new Snake(new Coordinates(resolution.x / 2, 0));
+        this.resetSnake();
 
         this.foods = new ArrayList<Food>();
         for (int i = 0; i < 6; i++) {
             this.foods.add(new Food(this.resolution));
         }
-
-        this.start(speed, size);
+        this.runAtFixedSpeed();
     }
 
     public static void main(String[] args) {
@@ -44,47 +43,54 @@ public class Main extends UserInterface {
         new Main(speed, resolution, size);
     }
 
-    public void up() {
+    private void resetSnake() {
+        this.snake = new Snake(new Coordinates[] {
+            new Coordinates(resolution.getX() / 2, 0),
+            new Coordinates(resolution.getX() / 2, 0),
+            new Coordinates(resolution.getX() / 2, 0)
+        });
+    }
+
+    protected void up() {
         this.snake.setDirection(Direction.UP);
     }
 
-    public void down() {
+    protected void down() {
         this.snake.setDirection(Direction.DOWN);
     }
 
-    public void left() {
+    protected void left() {
         this.snake.setDirection(Direction.LEFT);
     }
 
-    public void right() {
+    protected void right() {
         this.snake.setDirection(Direction.RIGHT);
     }
 
-    public void tick() {
+    protected void tick() {
         this.snake.extend();
+        ArrayList<Coordinates> positions = this.snake.getPositions();
         for (Food food : this.foods) {
-            ArrayList<Coordinates> positions = this.snake.getPositions();
             if (positions.contains(food.getPositions().get(0))) {
                 this.foods.remove(food);
                 this.foods.add(new Food(this.resolution));
                 return;
-            } else {
-                Coordinates last = positions.get(positions.size() - 1);
-                if (last.x >= this.resolution.x
-                        || last.y >= this.resolution.y
-                        || last.x < 0
-                        || last.y < 0
-                        || positions.indexOf(last) != positions.lastIndexOf(last)) {
-                    this.highscore = Math.max(this.getScore() - 1, this.highscore);
-                    this.snake = new Snake(new Coordinates(resolution.x / 2, 0));
-                    return;
-                }
             }
+        }
+        Coordinates last = positions.get(positions.size() - 1);
+        if (last.getX() >= this.resolution.getX()
+                || last.getY() >= this.resolution.getY()
+                || last.getX() < 0
+                || last.getY() < 0
+                || positions.indexOf(last) != positions.lastIndexOf(last)) {
+            this.highscore = Math.max(this.getScore() - 1, this.highscore);
+            this.resetSnake();
+            return;
         }
         this.snake.removeEnd();
     }
 
-    public ArrayList<Item> getItems() {
+    protected ArrayList<Item> getItems() {
         ArrayList<Item> items = new ArrayList<Item>();
         items.add(snake);
         for (Food food : this.foods) {
@@ -93,11 +99,11 @@ public class Main extends UserInterface {
         return items;
     }
 
-    public int getScore() {
+    protected int getScore() {
         return this.snake.getPositions().size() - 3;
     }
 
-    public int getHighscore() {
+    protected int getHighscore() {
         return this.highscore;
     }
 }
