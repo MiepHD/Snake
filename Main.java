@@ -4,27 +4,26 @@ import java.awt.Dimension;
 import snake.Coordinates;
 import snake.Item;
 import snake.UserInterface;
-import snake.Communicator;
 
-public class Main implements Communicator {
+public class Main extends UserInterface {
     private Snake snake;
     private ArrayList<Food> foods;
-    private final Coordinates resolution;
     private int highscore;
 
-    public Main(Coordinates resolution) {
-        this.highscore = 0;
+    public Main(int speed, Coordinates resolution, Dimension size) {
         this.resolution = resolution;
+        this.highscore = 0;
         this.snake = new Snake(new Coordinates(resolution.x / 2, 0));
         this.foods = new ArrayList<Food>();
         for (int i = 0; i < 6; i++) {
             this.foods.add(new Food(this.resolution));
         }
+        this.start(speed, size);
     }
 
     public static void main(String[] args) {
         Coordinates resolution = new Coordinates(30, 30);
-        new UserInterface(new Main(resolution), 500, resolution, new Dimension(10, 10));
+        new Main(500, resolution, new Dimension(10, 10));
     }
 
     public void up() {
@@ -43,7 +42,7 @@ public class Main implements Communicator {
         this.snake.setDirection(Direction.RIGHT);
     }
 
-    public void update() {
+    public void tick() {
         this.snake.extend();
         for (Food food : this.foods) {
             ArrayList<Coordinates> positions = this.snake.getPositions();

@@ -7,28 +7,28 @@ import java.awt.event.KeyEvent;
  * Tracks key's input and sends then to the listener
  */
 class KeyReceiver extends KeyAdapter {
-    private Communicator listener;
+    private UserInterface ui;
 
     /**
      * @param listener The listener where the actions should be send
      */
-    KeyReceiver(Communicator listener) {
-        this.listener = listener;
+    KeyReceiver(UserInterface ui) {
+        this.ui = ui;
     }
 
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                listener.up();
+                this.ui.up();
                 break;
             case KeyEvent.VK_DOWN:
-                listener.down();
+                this.ui.down();
                 break;
             case KeyEvent.VK_LEFT:
-                listener.left();
+                this.ui.left();
                 break;
             case KeyEvent.VK_RIGHT:
-                listener.right();
+                this.ui.right();
             default:
         }
     }

@@ -7,7 +7,7 @@ import java.awt.*;
  */
 class GUI extends Frame {
     private Label[][] points;
-    private Communicator listener;
+    private UserInterface ui;
     private Label[] numbers;
 
     /**
@@ -15,10 +15,10 @@ class GUI extends Frame {
      * @param listener
      * @param resolution     Width must be at least 23
      */
-    GUI(Communicator listener, Coordinates resolution, Dimension size) {
+    GUI(UserInterface ui, Coordinates resolution, Dimension size) {
         this.points = new Label[resolution.x][resolution.y];
-        this.listener = listener;
-        this.addKeyListener(new KeyReceiver(this.listener));
+        this.ui = ui;
+        this.addKeyListener(new KeyReceiver(this.ui));
         String[] vals = new String[] { "S", "c", "o", "r", "e", ":", " ", "0", "0", "0", " ", "H", "i", "g", "h", "e",
                 "s", "t", ":", " ", "0", "0", "0" };
         this.numbers = new Label[6];
