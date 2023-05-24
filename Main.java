@@ -14,16 +14,34 @@ public class Main extends UserInterface {
         this.resolution = resolution;
         this.highscore = 0;
         this.snake = new Snake(new Coordinates(resolution.x / 2, 0));
+
         this.foods = new ArrayList<Food>();
         for (int i = 0; i < 6; i++) {
             this.foods.add(new Food(this.resolution));
         }
+
         this.start(speed, size);
     }
 
     public static void main(String[] args) {
+        int speed = 500;
         Coordinates resolution = new Coordinates(30, 30);
-        new Main(500, resolution, new Dimension(10, 10));
+        Dimension size = new Dimension(10, 10);
+        for (int i = 0; i < args.length; i++) {
+            switch (args[i]) {
+                case "--speed":
+                    speed = Integer.parseInt(args[i + 1]);
+                    break;
+                case "--resolution":
+                    resolution = new Coordinates(Integer.parseInt(args[i + 1]), Integer.parseInt(args[i + 2]));
+                    break;
+                case "--size":
+                    size = new Dimension(Integer.parseInt(args[i + 1]), Integer.parseInt(args[i + 2]));
+                    break;
+                default:
+            }
+        }
+        new Main(speed, resolution, size);
     }
 
     public void up() {
